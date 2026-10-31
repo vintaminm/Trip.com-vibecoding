@@ -31,12 +31,12 @@ const MASCOT = '<img class="mascot-sm" src="img/mascot.webp" alt="">';
 // the guided path on the home page: each step opens the demo at that moment
 const TOUR = [
   ["收到邀请", "点自己的名字就加入", "#/join?stage=collect"],
-  ["一分钟偏好", "可以、勉强、不行，预算匿名", "#/crew/plan?stage=collect&show=pref"],
+  ["一分钟偏好", "日期分三档，预算匿名", "#/crew/plan?stage=collect&show=pref"],
   ["投票与折中", "能来几人排在票数前面", "#/crew/plan?stage=vote"],
-  ["分队行程", "各玩各的，18:30 南门集合", "#/crew/itinerary?stage=plan&day=3"],
+  ["分队行程", "分头玩，18:30 集合", "#/crew/itinerary?stage=plan&day=3"],
   ["各付各的", "订单拆成每人一份", "#/crew/money?stage=pay"],
   ["有人退出", "按出发约定自动算", "#/crew/members?stage=pay&show=drop"],
-  ["出行当天", "签到、晚饭投票、记一笔", "#/crew/itinerary?stage=trip"],
+  ["出行当天", "签到、投票、记一笔", "#/crew/itinerary?stage=trip"],
   ["结清与纪念", "每人只转一次", "#/crew/money?stage=settle"],
 ];
 const TRY = [["预算能不能再低点", "q:budget"], ["郭子轩不坐飞机怎么办", "q:train"], ["有人退出怎么算", "q:rules"], ["分队后怎么集合", "q:meet"]];
