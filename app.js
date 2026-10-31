@@ -787,7 +787,7 @@ const NAV = [
   ["members", "成员", '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-4 3.4-6 6.5-6s5.7 2 6.5 6"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 13.5c2.8 0 5 1.8 5.5 5.5"/>'],
 ];
 function route() {
-  const h = location.hash.replace(/^#\/?/, "") || "home";
+  const h = location.hash.replace(/^#\/?/, "").split("?")[0] || "home";
   const [a, b] = h.split("/");
   return a === "crew" ? { page: b || "overview", crew: true } : { page: a, crew: false };
 }
@@ -863,6 +863,7 @@ window.addEventListener("hashchange", () => { closeModal(); openAi(false); rende
 document.addEventListener("keydown", (e) => { if (e.key === "Escape") { closeModal(); openAi(false); } });
 setInterval(() => { if (S.stage === "vote" && route().crew) document.querySelectorAll(".countdown").forEach((el) => (el.innerHTML = el.innerHTML.replace(/截止还剩 .*$/, "截止还剩 " + countdown()))); }, 30000);
 
+// a link can open the demo at a given stage, e.g. #/crew/album?stage=settle
+const want = new URLSearchParams(location.search).get("stage") || (location.hash.split("?")[1] ? new URLSearchParams(location.hash.split("?")[1]).get("stage") : null);
 aiReset();
-render();
-renderAi();
+if (want && STAGE_NO[want] !== undefined) { location.hash = location.hash.split("?")[0]; setStage(want); } else { render(); renderAi(); }
