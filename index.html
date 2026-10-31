@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="拼途：毕业旅行拼团规划。把散落的人，拼成一次旅行：一个班的时间、预算、目的地三天定下来，机票民宿各付各的，有人退出按约定算。">
+<title>拼途 · 毕业旅行拼团规划</title>
+<link rel="icon" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/favicon.png">
+<link rel="stylesheet" href="style.css?v=11">
+</head>
+<body>
+<div class="app" id="app">
+
+  <aside class="side" id="side">
+    <a class="brand" href="#/home">
+      <img class="logo" src="img/logo.webp" alt="">
+      <span><b>拼途</b><small>毕业旅行拼团规划</small></span>
+    </a>
+    <div class="crew-switch" id="crewSwitch"></div>
+    <nav class="side-nav" id="sideNav"></nav>
+    <div class="side-foot">
+      <a href="#/design" class="side-link" data-nav="design"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM4 10h16M9 10v9"/></svg>产品设计说明</a>
+      <a href="#/me" class="side-link" data-nav="me"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-5 4-7 8-7s7 2 8 7"/></svg>我的</a>
+    </div>
+  </aside>
+
+  <div class="stage">
+    <header class="top" id="top"></header>
+    <main class="main" id="main"></main>
+    <nav class="tabbar" id="tabbar"></nav>
+  </div>
+
+  <aside class="ai-panel" id="aiPanel">
+    <div class="ai-head">
+      <span class="ai-dot" aria-hidden="true"></span>
+      <b>AI 领队</b>
+      <small>知道这个团的所有偏好和订单</small>
+      <button type="button" class="ai-close" id="aiClose" aria-label="收起">×</button>
+    </div>
+    <div class="ai-body" id="aiBody"></div>
+    <form class="ai-ask" id="aiAsk">
+      <input id="aiInput" placeholder="问 AI 领队，比如：预算能不能再低点" autocomplete="off" aria-label="问 AI 领队">
+      <button type="submit" aria-label="发送"><svg viewBox="0 0 24 24"><path d="M4 12h14M12 5l7 7-7 7"/></svg></button>
+    </form>
+  </aside>
+  <button type="button" class="ai-fab" id="aiFab" aria-label="AI 领队"><span class="ai-dot"></span>AI 领队<i id="aiBadge" hidden></i></button>
+
+  <div class="modal" id="modal" hidden>
+    <div class="modal-mask" id="modalMask"></div>
+    <div class="modal-card" id="modalCard" role="dialog" aria-modal="true"></div>
+  </div>
+  <div class="toast" id="toast" hidden></div>
+</div>
+<script src="data.js?v=11"></script>
+<script src="doc.js?v=11"></script>
+<script src="app.js?v=11"></script>
+</body>
+</html>
