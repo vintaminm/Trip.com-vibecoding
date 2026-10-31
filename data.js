@@ -173,6 +173,6 @@ const QUOTES = [
   { by: "m14", text: "不坐飞机也没被落下，高铁到昆明再动车，AI 领队给我单独排的。" },
 ];
 
-const HISTORY_CREW = { name: "高中同学 · 青岛 3 日", when: "2026-05-01 至 05-03", people: 8, spent: 1320, note: "已结清 · 纪念册 24 张" };
+const HISTORY_CREW = { name: "高中同学 · 青岛 3 日", when: "2026-05-01 至 05-03", people: 8, spent: 1320, note: "已结清" };
 
 const INSPIRE = ["dali", "xiamen", "chengdu", "qingdao", "changsha", "xian", "chongqing", "sanya"];
