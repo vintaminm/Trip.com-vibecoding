@@ -4,17 +4,17 @@ const ME = "m01";
 const MEMBERS = [
   { id: "m01", name: "林小满", role: "organizer", city: "上海", filled: false, budget: 2, dates: ["07-02","07-03","07-04","07-05","07-06","07-07","07-08","07-09"], wish: ["dali","xiamen"], vibe: ["自然","拍照"], hard: [] },
   { id: "m02", name: "周子昂", role: "finance", city: "上海", filled: true, budget: 3, dates: ["07-01","07-02","07-03","07-04","07-05","07-06","07-07","07-08","07-09","07-10"], wish: ["dali","chengdu"], vibe: ["美食","夜生活"], hard: [] },
-  { id: "m03", name: "陈雨桐", role: "member", city: "上海", filled: true, budget: 2, dates: ["07-03","07-04","07-05","07-06","07-07","07-08"], wish: ["dali","xiamen"], vibe: ["拍照","躺平"], hard: [] },
+  { id: "m03", name: "陈雨桐", role: "member", city: "上海", filled: true, budget: 2, dates: ["07-03","07-04","07-05","07-06","07-07","07-08"], maybe: ["07-02"], wish: ["dali","xiamen"], vibe: ["拍照","躺平"], hard: [] },
   { id: "m04", name: "王浩然", role: "member", city: "上海", filled: true, budget: 2, dates: ["07-02","07-03","07-04","07-05","07-06","07-07","07-08","07-09","07-10","07-11"], wish: ["chengdu","dali"], vibe: ["自然","暴走"], hard: [] },
-  { id: "m05", name: "李思语", role: "member", city: "北京", filled: true, budget: 3, dates: ["07-01","07-02","07-03","07-04","07-05","07-06","07-07"], wish: ["xiamen","dali"], vibe: ["海边","拍照"], hard: ["7/8 回北京实习报到"] },
-  { id: "m06", name: "张一帆", role: "member", city: "上海", filled: true, budget: 1, dates: ["07-03","07-04","07-05","07-06","07-07","07-08","07-09"], wish: ["xiamen","changsha"], vibe: ["美食","躺平"], hard: ["预算上限 1,500"] },
+  { id: "m05", name: "李思语", role: "member", city: "北京", filled: true, budget: 3, dates: ["07-01","07-02","07-03","07-04","07-05","07-06"], maybe: ["07-07"], wish: ["xiamen","dali"], vibe: ["海边","拍照"], hard: ["7/8 回北京实习报到"] },
+  { id: "m06", name: "张一帆", role: "member", city: "上海", filled: true, budget: 1, dates: ["07-03","07-04","07-05","07-06","07-07","07-08","07-09"], maybe: ["07-10"], wish: ["xiamen","changsha"], vibe: ["美食","躺平"], hard: ["预算上限 1,500"] },
   { id: "m07", name: "赵心怡", role: "member", city: "杭州", filled: true, budget: 2, dates: ["07-02","07-03","07-04","07-05","07-06","07-07","07-08"], wish: ["dali","qingdao"], vibe: ["自然","拍照"], hard: [] },
   { id: "m08", name: "刘宇辰", role: "member", city: "上海", filled: true, budget: 2, dates: ["07-04","07-05","07-06","07-07","07-08","07-09","07-10"], wish: ["chongqing","chengdu"], vibe: ["美食","夜生活"], hard: ["7/3 要去公司报到"] },
   { id: "m09", name: "黄诗涵", role: "member", city: "上海", filled: true, budget: 4, dates: ["07-01","07-02","07-03","07-04","07-05","07-06","07-07","07-08","07-09","07-10","07-11","07-12"], wish: ["sanya","dali"], vibe: ["海边","躺平"], hard: [] },
   { id: "m10", name: "吴嘉豪", role: "member", city: "北京", filled: true, budget: 2, dates: ["07-03","07-04","07-05","07-06","07-07","07-08","07-09"], wish: ["dali","xian"], vibe: ["自然","暴走"], hard: [] },
   { id: "m11", name: "郑雅宁", role: "member", city: "杭州", filled: true, budget: 2, dates: ["07-02","07-03","07-04","07-05","07-06","07-07","07-08","07-09","07-10"], wish: ["xiamen","dali"], vibe: ["海边","拍照"], hard: [] },
   { id: "m12", name: "孙铭泽", role: "member", city: "上海", filled: false, budget: 0, dates: [], wish: [], vibe: [], hard: [] },
-  { id: "m13", name: "何欣然", role: "member", city: "上海", filled: true, budget: 2, dates: ["07-03","07-04","07-05","07-06","07-07","07-08"], wish: ["dali","chengdu"], vibe: ["美食","拍照"], hard: [] },
+  { id: "m13", name: "何沐阳", role: "member", city: "上海", filled: true, budget: 2, dates: ["07-03","07-04","07-05","07-06","07-07","07-08"], wish: ["dali","chengdu"], vibe: ["美食","拍照"], hard: [] },
   { id: "m14", name: "郭子轩", role: "member", city: "上海", filled: true, budget: 1, dates: ["07-02","07-03","07-04","07-05","07-06","07-07","07-08","07-09","07-10"], wish: ["xiamen","qingdao"], vibe: ["海边","躺平"], hard: ["不坐飞机", "预算上限 1,500"] },
 ];
 
@@ -46,13 +46,13 @@ const PLANS = [
     dates: ["07-03","07-04","07-05","07-06","07-07"],
     cover: "img/dali.jpg", vibes: ["自然", "拍照", "躺平"],
     routes: {
-      "上海": { how: "飞昆明 + 动车到大理", price: 1290, arrive: "14:30", note: "08:05 起飞，昆明站动车 2 小时" },
-      "北京": { how: "直飞大理", price: 1650, arrive: "13:10", note: "09:20 起飞" },
-      "杭州": { how: "飞昆明 + 动车到大理", price: 1200, arrive: "15:40", note: "09:30 起飞" },
+      "上海": { how: "飞昆明 + 动车到大理", mode: "air", via: "昆明", price: 1290, arrive: "14:30", note: "08:05 起飞，昆明站动车 2 小时" },
+      "北京": { how: "直飞大理", mode: "air", price: 1650, arrive: "13:10", note: "09:20 起飞" },
+      "杭州": { how: "飞昆明 + 动车到大理", mode: "air", via: "昆明", price: 1200, arrive: "15:40", note: "09:30 起飞" },
     },
     stay: { name: "古城南门 · 洱海民宿", per: 150, rooms: "双人间", note: "4 晚，2 人一间，7 月 1 日前可免费退" },
     play: 520, meet: "7/3 16:30 大理站集合", flight: true,
-    exceptions: [{ who: "m14", how: "高铁到昆明 + 动车（不坐飞机）", price: 1030, arrive: "7/2 晚到昆明，7/3 10:40 到大理", note: "提前一晚出发" }],
+    exceptions: [{ who: "m14", how: "高铁到昆明 + 动车（不坐飞机）", mode: "rail", via: "昆明", price: 1030, arrive: "7/2 晚到昆明，7/3 10:40 到大理", note: "提前一晚出发" }],
     aiNote: { who: "m08", text: "刘宇辰 7/3 要去公司报到。改成 7/4–7/8 就 14 人都能来，但周末返程机票贵约 120 元/人；或者他 7/4 中午到，我单独排接站。" },
   },
   {
@@ -60,9 +60,9 @@ const PLANS = [
     dates: ["07-04","07-05","07-06","07-07"],
     cover: "img/xiamen.jpg", vibes: ["海边", "美食", "躺平"],
     routes: {
-      "上海": { how: "高铁直达", price: 800, arrive: "13:20", note: "07:50 发车，5 小时" },
-      "北京": { how: "飞厦门", price: 1500, arrive: "12:40", note: "09:00 起飞" },
-      "杭州": { how: "高铁直达", price: 700, arrive: "12:50", note: "08:10 发车" },
+      "上海": { how: "高铁直达", mode: "rail", price: 800, arrive: "13:20", note: "07:50 发车，5 小时" },
+      "北京": { how: "飞厦门", mode: "air", price: 1500, arrive: "12:40", note: "09:00 起飞" },
+      "杭州": { how: "高铁直达", mode: "rail", price: 700, arrive: "12:50", note: "08:10 发车" },
     },
     stay: { name: "曾厝垵 · 海景民宿", per: 150, rooms: "双人间", note: "3 晚，2 人一间；换青旅四人间 60 元/人/晚" },
     play: 500, meet: "7/4 13:30 厦门北站集合", flight: false,
@@ -73,9 +73,9 @@ const PLANS = [
     dates: ["07-02","07-03","07-04","07-05","07-06"],
     cover: "img/chengdu.jpg", vibes: ["美食", "夜生活"],
     routes: {
-      "上海": { how: "飞成都，重庆回", price: 1300, arrive: "12:10", note: "两段不同航司，各自退改" },
-      "北京": { how: "飞成都，重庆回", price: 1400, arrive: "11:50", note: "" },
-      "杭州": { how: "飞成都，重庆回", price: 1200, arrive: "12:30", note: "" },
+      "上海": { how: "飞成都，重庆回", mode: "air", price: 1300, arrive: "12:10", note: "两段不同航司，各自退改" },
+      "北京": { how: "飞成都，重庆回", mode: "air", price: 1400, arrive: "11:50", note: "" },
+      "杭州": { how: "飞成都，重庆回", mode: "air", price: 1200, arrive: "12:30", note: "" },
     },
     stay: { name: "春熙路 + 解放碑 · 连锁酒店", per: 140, rooms: "双人间", note: "两城各 2 晚，中间高铁 1.5 小时" },
     play: 520, meet: "7/2 13:00 成都东站集合", flight: true,
@@ -134,6 +134,24 @@ const EXPENSES = [
   { id: "e5", day: 3, name: "毕业晚宴", amount: 1680, by: "m02", among: "all" },
   { id: "e6", day: 4, name: "南诏风情岛 船票", amount: 700, by: "m09", among: "all" },
   { id: "e7", day: 4, name: "奶茶", amount: 96, by: "m07", among: ["m07","m03","m11","m09","m13","m01"] },
+];
+
+// who shares a room; a dropout leaves the roommate alone in it
+const ROOMS = [["m01", "m03"], ["m05", "m07"], ["m09", "m11"], ["m02", "m04"], ["m06", "m13"], ["m08", "m12"], ["m10", "m14"]];
+
+// group size unlocks group stock on trip.com: a whole guesthouse, a charter car, a private dining room
+const PERKS = [
+  { n: 6, name: "整栋民宿", note: "整栋包下，每人每晚省约 40 元", save: 160 },
+  { n: 10, name: "包车接送站", note: "两辆车接站送站，每人每趟约 25 元", save: 70 },
+  { n: 12, name: "晚宴包间", note: "人数够包间低消，免包间费", save: 50 },
+];
+
+// what the invite page shows: reactions and a few lines from people already in
+const REACTS = [["🎓", 9], ["✈️", 6], ["🌊", 5], ["🔥", 4]];
+const WALL = [
+  { by: "m02", text: "这次终于不用我先垫钱了，冲" },
+  { by: "m14", text: "我不坐飞机，有高铁的方案就来" },
+  { by: "m09", text: "想看海，洱海也算海吧" },
 ];
 
 const RULES = [

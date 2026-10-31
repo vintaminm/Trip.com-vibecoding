@@ -10,14 +10,14 @@ function DESIGN_DOC() {
   <h2><i>01</i>先说用户：谁在组织，卡在哪</h2>
   <p>目标用户是毕业班、宿舍、社团这类 6 到 30 人的熟人团。组织者多半是班长或最热心的那个人，成员之间彼此认识，但消费能力、空闲时间、想去哪都不一样。整理了公开的攻略、分账工具的用户故事、司法案例和携程、去哪儿、途牛的毕业季数据后，痛点归成六条：</p>
   <ul class="pain">
-    <li><b>定不下来</b><span>日期、预算、目的地三个维度同时在群里讨论，谁都不敢拍板；一篇攻略的原话是光选地方就能吵一周。</span><span class="to">→ 每人填一次偏好，AI 合成三套方案，大家只投票</span></li>
+    <li><b>定不下来</b><span>日期、预算、目的地三件事同时在群里讨论，谁都不敢拍板；很多人也不是不能去，是那天要调班、要请假，只能回一句「看情况」。</span><span class="to">→ 每人填一次偏好，日期分可以、勉强、不行三档；AI 合成三套方案，大家只投票</span></li>
     <li><b>预算不好意思说</b><span>预算低的人不会在群里讲，最后要么硬撑，要么悄悄退出。</span><span class="to">→ 预算只选档位，只有 AI 领队和组织者看汇总</span></li>
-    <li><b>组织者垫钱、追钱</b><span>一个人先付两万机酒，再一个个要；一位做分账 App 的作者回忆，旅行结束要在 Excel 和计算器之间算一下午，还会漏记。</span><span class="to">→ 携程订单按人拆份，各付各的；行中记账，结束时每人和财务转一次就结清</span></li>
-    <li><b>出发地分散</b><span>毕业典礼之后，有人回了家，有人已经去外地入职，同一个目的地对不同人的成本和到达时间差很多。</span><span class="to">→ 每套方案按每个出发地分别算交通、到达时间和集合点</span></li>
+    <li><b>组织者垫钱、追钱</b><span>一个人先付两万机酒，再一个个要；一位做分账 App 的作者回忆，旅行结束要在 Excel 和计算器之间算一下午，还会漏记。美国 Zelle 委托的一项调查里，替朋友垫过团体旅行费用的 Z 世代，76% 没被全额还清。</span><span class="to">→ 携程订单按人拆份，各付各的；行中记账，结束时每人和财务转一次就结清</span></li>
+    <li><b>出发地分散</b><span>毕业典礼之后，有人回了家，有人已经去外地入职，同一个目的地对不同人的成本和到达时间差很多。</span><span class="to">→ 每套方案按每个出发地分别报价、排交通和到达时间，地图上画出几路人怎么合流</span></li>
     <li><b>有人退出</b><span>退出的人机票怎么退、室友的房费谁补，是最伤感情的一步；2026 年 1 月人民日报报道过「旅游搭子」中途脱队被诉的案子，法院按事先声明判。</span><span class="to">→ 建团时定出发约定，退出时自动算退款和差价，通知到人</span></li>
     <li><b>人多步调不一</b><span>有人想爬山有人想逛街，十几个人绑在一起谁都不尽兴。</span><span class="to">→ 分队日：各队各自日程，集合点和时间统一，到点自动提醒</span></li>
   </ul>
-  <p class="sm muted">市场侧：去哪儿数据里 6 月上旬 22 到 25 岁旅客的酒店订单，多人出行占七成以上；途牛数据里毕业游用户近 55% 选 2 到 3 人同行，更大的班级团几乎没有工具承接。携程 2025 年 9 月上线的 AI 行程助手能一键导入订单、拖拽改行程，但只服务一个人，没有多人协作，这正是拼途补的位置。</p>
+  <p class="sm muted">市场侧：去哪儿数据里 6 月上旬 22 到 25 岁旅客的酒店订单，多人出行占七成以上；途牛数据里毕业游用户近 55% 选 2 到 3 人同行，更大的班级团几乎没有工具承接。公开报道里，携程 2025 年 9 月上线的 AI 行程助手能一键导入订单、拖拽改行程，讲的都是一个人的行程；有一篇评测的摘要提到携程问道可以分享后共同编辑，原文没能打开。一个班一起定日期、投票、各付各的、按约定退出，这一整段还没看到有人做，这是拼途补的位置。</p>
 
   <h2><i>02</i>产品结构</h2>
   <p>一个团一个空间，围绕「定下来、付清楚、走顺利、留下来」四件事。AI 领队不是聊天机器人，它读得到团里的偏好、投票、订单和行程，每个阶段主动说该做什么。</p>
@@ -25,15 +25,16 @@ function DESIGN_DOC() {
     <ul>
       <li><b>拼途</b><span> · 携程 App 入口 / 小程序 / 网页，邀请链接点开就能用</span>
         <ul>
-          <li><b>首页</b><span> · 我的团、建团、邀请码加入、毕业季大家都在去（携程多人出行数据）</span></li>
+          <li><b>邀请页</b><span> · 同学点开链接先看到这一页：邀请海报、谁已经加入、留言和表情、人越多越省、出发约定，在名单里点自己的名字就加入</span></li>
+          <li><b>首页</b><span> · 我的团、建团、邀请码加入、三分钟演示路线、毕业季大家都在去（携程多人出行数据）</span></li>
           <li><b>团空间</b><span> · 一个团一个，五个阶段自动推进</span>
             <ul>
-              <li><b>概览</b><span> · 阶段进度、现在要做的事、团里的数、AI 领队、出发约定</span></li>
-              <li><b>定方案</b><span> · 偏好汇总（日期热力、预算档位分布、想去哪、硬约束）→ 三套方案（能来几人、人均、匹配度、每个出发地怎么去）→ 投票、折中方案 → 组织者锁定</span></li>
-              <li><b>行程</b><span> · AI 草稿（携程 POI 开放时间核验）→ 成员提议、点赞、采纳 → 分队与集合点 → 出行中：签到、临时投票、记一笔</span></li>
-              <li><b>费用</b><span> · 预算与人均对照 → 各付各的（订单拆份、付款进度、价格锁定）→ 行中记账 → 净额结算 → 出发约定</span></li>
-              <li><b>成员</b><span> · 角色（组织者、财务、成员）、每阶段状态、退出演算</span></li>
-              <li><b>纪念册</b><span> · 照片时间轴、每人一句话、数据回顾、分享到携程社区、明年再约</span></li>
+              <li><b>概览</b><span> · 阶段进度、现在要做的事、关键数字、人越多越省、出发约定</span></li>
+              <li><b>定方案</b><span> · 偏好汇总（日期热力、谁哪天能来、预算档位分布、想去哪、硬约束）→ 三套方案（能来几人、人均、匹配度、每个出发地的价格、合流地图）→ 投票、折中方案 → 组织者锁定</span></li>
+              <li><b>行程</b><span> · AI 草稿和自查（预算、到达与集合、每天景点数、开放时间）→ 成员提议、点赞、采纳 → 分队与集合点 → 出行中：签到、临时投票、记一笔</span></li>
+              <li><b>费用</b><span> · 预算与人均对照 → 各付各的（订单拆份、付款进度、价格锁定）→ 行中记账 → 净额结算（余额条、标记已转、两清）</span></li>
+              <li><b>成员</b><span> · 角色（组织者、财务、成员）、出发城市、室友、每阶段状态、退出演算</span></li>
+              <li><b>纪念册</b><span> · 数据回顾、我们的路线、照片时间轴、每人一句话、分享到携程社区、明年再约</span></li>
             </ul>
           </li>
           <li><b>AI 领队</b><span> · 每个页面都在：汇总偏好、合方案、给折中、排接站、提醒没填没付的人、按约定算退出</span></li>
@@ -45,12 +46,12 @@ function DESIGN_DOC() {
 
   <h2><i>03</i>核心流程：从建团到结清</h2>
   <ol class="flow">
-    <li><i>1</i><div><b>建团，定出发约定</b><p>组织者填团名、大概时间、人数，确认一份退出规则（出发前 7 天、3 到 7 天、3 天内各怎么算），生成邀请链接丢进班群。成员点开就能填，不用装新 App。</p><span class="pill blue">对应痛点：有人退出</span></div></li>
-    <li><i>2</i><div><b>每人一分钟偏好</b><p>7 月哪几天能出来（日历多选，红点提示大家空得最多的日子）、预算档位（匿名）、最想去的两个地方（第一志愿 2 票）、想怎么玩、硬约束（不坐飞机、必须几号回家）。出发城市自动带出。</p><span class="pill blue">对应痛点：定不下来、预算不好意思说</span></div></li>
-    <li><i>3</i><div><b>AI 合方案，大家投票，组织者锁定</b><p>AI 领队按能来的人数 40%、想去的票数 30%、预算合不合 20%、玩法 10% 算匹配度，给三套方案；每套按每个出发地分别算交通和到达时间，不坐飞机的人单独排。少数人的问题不是被否决，而是变成折中选项：改日期、换四人间、晚一天到。投票有截止时间，票数接近时看能来的人数，由组织者锁定，AI 不替大家决定。</p><span class="pill blue">对应痛点：定不下来、出发地分散</span></div></li>
-    <li><i>4</i><div><b>行程共创，各付各的</b><p>锁定后 AI 生成行程草稿，每项带携程核验过的开放时间和预估花费；成员提议、点赞到 3 个组织者一键采纳；分队日各队各自日程、统一集合点。机票民宿拆成每人的份，各自在携程账户付自己那份，组织者只看谁付了，价格锁定 48 小时。</p><span class="pill blue">对应痛点：垫钱、步调不一</span></div></li>
+    <li><i>1</i><div><b>建团，发邀请海报</b><p>组织者填团名、大概时间，导入班级名单，确认一份退出规则（出发前 7 天、3 到 7 天、3 天内各怎么算），生成一张邀请海报丢进班群。同学点开先看到谁已经加入、大家的留言，在名单里点自己的名字，勾选看过出发约定，就进来了，不用注册、不用装新 App。</p><span class="pill blue">对应痛点：有人退出、定不下来</span></div></li>
+    <li><i>2</i><div><b>每人一分钟偏好</b><p>7 月哪几天能出来：日历点一下是可以，再点一下是勉强，红点提示大家空得最多的日子；预算档位（匿名）、最想去的两个地方（第一志愿 2 票）、想怎么玩、硬约束（不坐飞机、必须几号回家）。出发城市自动带出。</p><span class="pill blue">对应痛点：定不下来、预算不好意思说</span></div></li>
+    <li><i>3</i><div><b>AI 合方案，大家投票，组织者锁定</b><p>AI 领队按能来的人数 40%、想去的票数 30%、预算合不合 20%、玩法 10% 算匹配度，给三套方案；每套按每个出发地分别报价，卡片上直接看到上海、北京、杭州各自多少钱，自己城市框出来；不坐飞机的人单独排，地图上画出几路人怎么到同一个集合点。点开「谁哪天能来」，每个人每天是可以、勉强还是不行一目了然。少数人的问题不是被否决，而是变成折中选项：改日期、换四人间、晚一天到。投票有截止时间，票数接近时看能来的人数，由组织者锁定，AI 不替大家决定。</p><span class="pill blue">对应痛点：定不下来、出发地分散</span></div></li>
+    <li><i>4</i><div><b>行程共创，各付各的</b><p>锁定后 AI 生成行程草稿，先自查四件事再给大家看：人均在不在大家的中位预算内、最晚到的人赶不赶得上集合、每天景点不超过 3 个、开放时间核过。成员提议、点赞到 3 个组织者一键采纳；分队日各队各自日程、统一集合点。机票民宿拆成每人的份，各自在携程账户付自己那份，组织者只看谁付了，价格锁定 48 小时。</p><span class="pill blue">对应痛点：垫钱、步调不一</span></div></li>
     <li><i>5</i><div><b>出行中</b><p>今日卡片：集合签到、谁还没到、晚一天到的人怎么接；临时投票（晚饭吃什么）到点按票数订位；谁垫了钱当场记一笔，谁参与点一下。天气变了 AI 领队先改草稿再问要不要。</p><span class="pill blue">对应痛点：垫钱、步调不一</span></div></li>
-    <li><i>6</i><div><b>结清和纪念册</b><p>结束时按每笔的参与人算净额，每人只和财务转一次账，一键发结清链接；照片按时间轴排，每人一句话，一键做成纪念册发到携程社区或小红书。明年同一天 AI 领队问一句要不要再约，偏好直接带过去。</p><span class="pill blue">对应：留下来、二次成团</span></div></li>
+    <li><i>6</i><div><b>结清和纪念册</b><p>结束时按每笔的参与人算净额，余额条一眼看出谁该转出、谁该收回。14 个人按每笔谁欠谁各还各的，要转 62 次；财务做中枢，每人只转一次，一共 13 次。每笔可以标记已转，全部转完显示两清。照片按时间轴排，每人一句话，一键做成纪念册发到携程社区或小红书。明年同一天 AI 领队问一句要不要再约，偏好直接带过去。</p><span class="pill blue">对应：留下来、二次成团</span></div></li>
   </ol>
 
   <h2><i>04</i>几个关键设计，为什么这样做</h2>
@@ -58,6 +59,10 @@ function DESIGN_DOC() {
   <p>毕业旅行的意义是人齐，不是去最好的地方。所以方案卡片上第一个数字是「13/14 能来」，匹配度里日期占 40%；票数接近时 AI 领队提醒组织者先看人数。</p>
   <h3>少数派意见变成折中选项，不是被否决</h3>
   <p>一个人 7/3 走不开，方案 A 不会只写「13 人能来」，AI 领队会给两条路：全团改到 7/4 出发（贵 120 元/人），或者他 7/4 中午到、单独排接站。预算上限 1,500 的两个人，方案 B 给出换青旅四人间后的人均。这样投票投的是具体的取舍，群里不用吵。</p>
+  <h3>勉强也是一种回答</h3>
+  <p>只有能去和不能去两档，「要请一天假」的人只能选一个，选哪个都不准。日历每天分可以、勉强、不行三档，勉强算进能来人数，但会写在方案卡上（某某有一天勉强），代价落在谁身上大家都看得见。</p>
+  <h3>人越多越省，拼团的「团」落在价格上</h3>
+  <p>人数到了，携程的团体价和整栋房源才开放：满 6 人整栋民宿、满 10 人包车接送站、满 12 人晚宴包间（原型里的门槛和金额是设想）。概览和邀请页都写着还差几人，拉同学进团有了具体理由，组织者不用一个个劝。</p>
   <h3>各付各的，而不是公账</h3>
   <p>组织者最怕的是先垫钱再追钱。携程本来就能在一个订单里加多个乘客、多间房，拼途把订单按人拆成份，每人付自己的，退改也各自走携程规则。不做资金池，不碰合规。</p>
   <h3>出发约定先定，退出自动算</h3>
@@ -65,18 +70,44 @@ function DESIGN_DOC() {
   <h3>分队与集合点</h3>
   <p>十几个人不必全程绑在一起。分队日各队各自日程，集合点和时间统一，集合前 30 分钟提醒一次，谁没在路上单独提醒。</p>
   <h3>AI 领队有边界</h3>
-  <p>它汇总、合方案、给折中、提醒、算账，但锁定方案、采纳提议、确认退出都是人点的。它的每条建议都写明依据（几人能来、差多少钱），可追问。</p>
+  <p>它汇总、合方案、给折中、提醒、算账，但锁定方案、采纳提议、确认退出都是人点的。它不会自己弹出来插话，按钮触发的回复只在面板里加一条、亮一个角标；每条建议写明依据（几人能来、差多少钱），可追问。</p>
 
-  <h2><i>05</i>为什么由携程来做</h2>
+  <h2><i>05</i>借鉴了谁，哪里不一样</h2>
+  <p>看了海外正火的产品和 GitHub 上星数靠前的开源项目（2026 年 10 月）。做邀请、约时间、分账、地图行程的都有，但没有一个处理「几个出发地、各自预算」怎么算才公平，这块是拼途自己的。</p>
+  <ul class="borrow">
+    <li><b>Partiful</b><small>派对邀请 App，2024 年 Google Play 年度最佳应用；2025 年前 4 个月新增约 200 万用户</small>
+      <p><em>借</em>一个链接一张海报；点开先看到谁已经来了、大家的留言和表情；不装 App、不注册。</p>
+      <p class="diff"><em>不同</em>邀请页同时是报名入口：在名单里点自己的名字，接着填偏好；加入前先确认出发约定。</p></li>
+    <li><b>Rallly、Crab.fit、When2meet</b><small>约时间工具，Rallly 在 GitHub 有 5,300 多星；When2meet 的绿色格子是最常见的约时间方式</small>
+      <p><em>借</em>每天三档可以、勉强、不行；颜色越深空的人越多；点开能看到具体是谁。</p>
+      <p class="diff"><em>不同</em>日期只是匹配度的一项，和想去哪、预算、玩法一起算进方案；勉强的人写在方案卡上。</p></li>
+    <li><b>Spliit、Splitwise、Tricount、TREK</b><small>分账和团队行程工具，Spliit 有 3,000 多星，TREK 有 15,000 多星；Tricount 自称 2,000 万用户</small>
+      <p><em>借</em>点链接选「我是谁」；净额结算；红绿余额条；每笔标记已转；全部转完显示两清。</p>
+      <p class="diff"><em>不同</em>机票民宿在携程各付各的，不进账本；共同消费才记账，财务做中枢，62 次转账变 13 次。</p></li>
+    <li><b>Polarsteps、Wanderlog</b><small>地图行程，Polarsteps 自称 2,000 万旅行者；Wanderlog 在 App Store 4.9 分、编辑推荐</small>
+      <p><em>借</em>路线画在地图上；行程和地图一起看；回来后路线和照片做成纪念册。</p>
+      <p class="diff"><em>不同</em>地图画的是三个出发地怎么合流：飞机蓝线、高铁红线，不坐飞机的人单独一条，终点写集合时间。</p></li>
+    <li><b>Mindtrip、ChatGPT 群聊</b><small>AI 进了旅行群：Mindtrip 融资超过 2,000 万美元；ChatGPT 群聊 2025 年 11 月全球上线，官方举的第一个例子就是和朋友计划周末出游</small>
+      <p><em>借</em>AI 看得到所有人的偏好，把不同出发地和预算合成一个方案。</p>
+      <p class="diff"><em>不同</em>AI 领队不主动插话，只在被问到或该提醒时出现；锁方案、采纳、退出都由人点。</p></li>
+    <li><b>TravelPlanner</b><small>评测 AI 做行程的开源基准（ICML 2024），用一组规则检查 AI 给的行程</small>
+      <p><em>借</em>给 AI 草稿列明确的检查项：预算、交通衔接、每天景点数、地点和开放时间。</p>
+      <p class="diff"><em>不同</em>检查结果直接写在行程顶部给全团看，没过的一条标红。</p></li>
+    <li><b>Google AI 机票特价</b><small>2025 年 11 月上线，只能填一个出发地、最多 4 位旅客（单一来源）</small>
+      <p class="diff"><em>补位</em>每套方案按每个出发地分别报价，14 个人、3 个城市在一张卡上看完。</p></li>
+  </ul>
+
+  <h2><i>06</i>为什么由携程来做</h2>
   <ul class="dots">
     <li><b>库存和价格是真的。</b>方案里的人均不是估算，是携程当前报价，锁定后 48 小时有效；出发地不同的人看到的是各自的真实航线。</li>
     <li><b>订单能拆。</b>多乘客、多房间本来就是携程的下单能力，拆成每人一份、各自退改，是现有能力的重组。</li>
-    <li><b>POI 与行程助手。</b>2025 年上线的 AI 行程助手已经有 2,000 万兴趣点和官方核验的开放时间，拼途把它从一个人的工具变成一个团的工具。</li>
+    <li><b>POI 与行程助手。</b>2025 年上线的 AI 行程助手已经接了 2,000 万个兴趣点，拼途把它从一个人的工具变成一个团的工具。</li>
+    <li><b>AI 已经在带单。</b>携程国际版的 AI 助手 TripGenie 2026 年 3 月公布，AI 辅助下单同比增长约 400%，近六成对话和预订有关（公司口径）。AI 领队合出的方案，下一步就是携程下单。</li>
     <li><b>生意在成团那一刻。</b>一个 14 人的团锁定方案，就是 14 张往返机票加 7 间房 4 晚；毕业生是第一次自己订行程的人，留下的是账号和习惯。</li>
     <li><b>社区承接。</b>纪念册发到携程社区，明年再约从同一个入口回来。</li>
   </ul>
 
-  <h2><i>06</i>怎么判断它做对了</h2>
+  <h2><i>07</i>怎么判断它做对了</h2>
   <ul class="metric">
     <li><b>成团率</b><small>建团后 7 天内锁定方案的团 / 建团数。目标 60% 以上，这是整个产品的北极星。</small></li>
     <li><b>定方案时长</b><small>建团到锁定的中位时间。目标 3 天以内；超过 7 天的团看卡在哪一步。</small></li>
@@ -90,10 +121,10 @@ function DESIGN_DOC() {
   </ul>
   <p class="sm muted" style="margin-top:10px">验证方法：先在 10 所高校的毕业班灰度，对照组用普通携程下单；每周看成团漏斗（建团 → 填偏好 → 投票 → 锁定 → 付清），每周访谈 5 个卡住的组织者。</p>
 
-  <h2><i>07</i>路线图与不做的事</h2>
+  <h2><i>08</i>路线图与不做的事</h2>
   <table>
     <tr><th style="width:84px">版本</th><th>做什么</th><th>验证什么</th></tr>
-    <tr><td><b>V1</b></td><td>建团、偏好、AI 合方案与投票、锁定、各付各的</td><td>成团率、定方案时长、垫付金额</td></tr>
+    <tr><td><b>V1</b></td><td>建团与邀请页、偏好、AI 合方案与投票、锁定、各付各的</td><td>成团率、定方案时长、垫付金额</td></tr>
     <tr><td><b>V2</b></td><td>行程共创、分队与集合、出行中签到与记账、净额结算</td><td>结清率、行中记账使用率</td></tr>
     <tr><td><b>V3</b></td><td>纪念册、携程社区分享、明年再约、退出演算接入客服</td><td>再约率、退出纠纷率</td></tr>
   </table>
@@ -103,19 +134,21 @@ function DESIGN_DOC() {
     <li><b>不替用户决定。</b>AI 只给带依据的选项，锁定、采纳、退出都由人点。</li>
   </ul>
 
-  <h2><i>08</i>这份作品怎么看</h2>
-  <p>这是可以点的原型，手机和电脑两种布局，数据是一个 14 人、3 个出发地的毕业班。右上角「演示 ▾」可以跳到任一阶段；每个数字都由成员数据算出来，改一个人的偏好，方案的人均和能来人数会跟着变。</p>
+  <h2><i>09</i>这份作品怎么看</h2>
+  <p>这是可以点的原型，手机和电脑两种布局，数据是一个 14 人、3 个出发地的毕业班。首页底部有一条三分钟的演示路线；右上角「演示 ▾」可以跳到任一阶段。每个数字都由成员数据算出来，改一个人的偏好，方案的人均和能来人数会跟着变。下面每个链接都会从那一步重新开始。</p>
   <div class="shots">
-    <a href="#/crew/plan">定方案<small>日期热力、三套方案、折中建议</small></a>
-    <a href="#/crew/itinerary">行程<small>分队日、提议采纳、出行中签到</small></a>
-    <a href="#/crew/money">费用<small>各付各的、记账、净额结算</small></a>
-    <a href="#/crew/members">成员<small>退出演算，按约定通知到人</small></a>
-    <a href="#/crew/album">纪念册<small>时间轴、每人一句话</small></a>
-    <a href="#/home">首页<small>我的团、毕业季大家都在去</small></a>
+    <a href="#/join?stage=collect">邀请页<small>海报、名单认领、出发约定</small></a>
+    <a href="#/crew/plan?stage=vote">定方案<small>谁哪天能来、分城价格</small></a>
+    <a href="#/crew/itinerary?stage=plan&amp;day=1">行程第一天<small>三地合流地图、AI 草稿自查</small></a>
+    <a href="#/crew/itinerary?stage=plan&amp;day=3">分队日<small>两队日程、集合点、提议</small></a>
+    <a href="#/crew/money?stage=pay">各付各的<small>订单拆份、付款进度</small></a>
+    <a href="#/crew/members?stage=pay&amp;show=drop">有人退出<small>退票、室友差价、通知到人</small></a>
+    <a href="#/crew/money?stage=settle">结算<small>余额条、62 次变 13 次</small></a>
+    <a href="#/crew/album?stage=settle">纪念册<small>路线、照片、每人一句话</small></a>
   </div>
   <p class="sm muted" style="margin-top:12px">制作方式：产品结构、流程与机制为本人设计；前端代码、演示数据和交互由 AI Coding 工具（Claude Code）生成，配图与图标由图像模型（Nano Banana 2）生成；纯前端、无后端，托管在 GitHub Pages。</p>
 
-  <h2><i>09</i>来源</h2>
+  <h2><i>10</i>来源</h2>
   <ul class="src">
     <li>2026-10-31 · <a href="https://www.pai.com.cn/p/01k58kx7f1vts3db0gspd1q0j4" target="_blank" rel="noopener">电商派：携程正式推出 AI 行程助手功能（2025-09-16）</a> · 一键导入订单、地图拖拽编辑、2,000 万兴趣点；未提多人协作 · 可信度 中</li>
     <li>2026-10-31 · <a href="https://www.guancha.cn/qiche/2025_06_19_780020.shtml" target="_blank" rel="noopener">观察者网：一场毕业旅行背后的青春账单（2025-06）</a> · 去哪儿数据 22–25 岁旅客 6 月上旬酒店订单多人出行占七成以上；途牛数据近 55% 选 2–3 人同行 · 可信度 中</li>
@@ -124,5 +157,13 @@ function DESIGN_DOC() {
     <li>2026-10-31 · <a href="https://www.peopleapp.com/column/30051273159-500007319053" target="_blank" rel="noopener">人民日报客户端：「旅游搭子」提前脱队，要承担责任吗（2026-01-22）</a> · 事先声明费用均摊与离队责任，法院按合同纠纷处理 · 可信度 高</li>
     <li>2026-10-31 · <a href="https://tripprof.com/en/blog/best-group-travel-planning-apps/" target="_blank" rel="noopener">TripProf：Best Group Travel Planning Apps in 2026</a> · Troupe 投票、Wanderlog 轻分账、Splitwise 分账、TripBase 日期热力图 · 可信度 低（厂商博客）</li>
     <li>2026-10-31 · 微博、新浪多篇毕业旅行攻略（2026-06）· 先定预算和分工、AA 或公账、给不同意见的人留自由活动时间 · 可信度 低（营销稿，只取共识）</li>
+    <li>2026-10-31 · <a href="https://techcrunch.com/2024/11/18/partiful-is-googles-best-app-of-2024/" target="_blank" rel="noopener">TechCrunch：Partiful 获 Google Play 2024 年度最佳应用</a>；<a href="https://www.nbcnewyork.com/news/business/money-report/meet-partiful-the-gen-z-party-planning-staple-thats-taking-on-apple/6231135/" target="_blank" rel="noopener">CNBC：2025 年前 4 个月新增约 200 万用户（Sensor Tower 估算）</a> · 海报邀请、不装 App 回复、留言和表情 · 可信度 中</li>
+    <li>2026-10-31 · GitHub：<a href="https://github.com/lukevella/rallly" target="_blank" rel="noopener">Rallly</a> 5,334 星、<a href="https://github.com/GRA0007/crab.fit" target="_blank" rel="noopener">Crab.fit</a> 542 星、<a href="https://github.com/spliit-app/spliit" target="_blank" rel="noopener">Spliit</a> 3,033 星、<a href="https://github.com/liketrek/TREK" target="_blank" rel="noopener">TREK</a> 15,273 星、<a href="https://github.com/OSU-NLP-Group/TravelPlanner" target="_blank" rel="noopener">TravelPlanner</a> 566 星 · 可以、勉强、不行三档投票；点名字认领、不注册；余额条与两清；AI 行程按规则自查 · 可信度 高（仓库一手）</li>
+    <li>2026-10-31 · <a href="https://tricount.com" target="_blank" rel="noopener">Tricount 官网</a>、<a href="https://apps.apple.com/us/app/splitwise/id458023433" target="_blank" rel="noopener">Splitwise App Store 页</a> · Tricount 自称 2,000 万用户、不限条数；Splitwise 简化债务 · 可信度 中（公司口径）</li>
+    <li>2026-10-31 · <a href="https://www.polarsteps.com/news/20-million-travelers-and-counting-tech-success-story-polarsteps-celebrates-its-fast-growing-community" target="_blank" rel="noopener">Polarsteps：2,000 万旅行者（2026-03）</a>、<a href="https://apps.apple.com/us/app/wanderlog-travel-planner/id1476732439" target="_blank" rel="noopener">Wanderlog App Store 页</a> · 路线自动画在地图上、行程与地图同屏、旅行书 · 可信度 中</li>
+    <li>2026-10-31 · <a href="https://globetrender.com/2024/09/24/mindtrip-launches-group-chat-feature/" target="_blank" rel="noopener">Mindtrip 群聊上线</a>、<a href="https://pulse2.com/mindtrip-strategic-investments/" target="_blank" rel="noopener">Mindtrip 融资</a>、<a href="https://www.macrumors.com/2025/11/20/chatgpt-group-chats" target="_blank" rel="noopener">MacRumors：ChatGPT 群聊全球上线（2025-11-20）</a> · AI 合并不同出发地和预算 · 可信度 中</li>
+    <li>2026-10-31 · <a href="https://ppc.land/google-expands-ai-travel-planning-to-200-countries-with-booking-features/" target="_blank" rel="noopener">PPC Land：Google AI 机票特价扩展到 200 多个国家（2025-11-17）</a> · 只能填一个出发地、最多 4 位旅客 · 可信度 中（单一来源）</li>
+    <li>2026-10-31 · <a href="https://www.blackenterprise.com/gen-z-friends-loan-money-group-trips/" target="_blank" rel="noopener">Black Enterprise：Zelle 委托调查（2026-07-13）</a> · 垫过团体旅行费用的 Z 世代 76% 没被全额还清 · 可信度 低（委托调查，单一来源）</li>
+    <li>2026-10-31 · <a href="https://tools.prnewswire.com/en-us/live/20823/release/20260315EN09481" target="_blank" rel="noopener">PR Newswire：TripGenie 三周年（2026-03）</a> · AI 辅助下单同比增长约 400%，近六成对话和预订有关 · 可信度 中（公司口径）</li>
   </ul>`;
 }
