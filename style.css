@@ -539,7 +539,7 @@ textarea.input { height: auto; padding: 10px 12px; resize: vertical; }
   .top { padding: 14px 32px 10px; min-height: 64px; }
   .top .back { display: none; }
   .top .ttl b { font-size: 20px; }
-  .top .steps { display: flex; margin-left: auto; width: min(520px, 50%); }
+  .top .steps { display: none; }
   .main { padding: 0 32px 48px; max-width: 1040px; }
   .tabbar { display: none; }
   .ai-fab { bottom: 24px; right: 24px; }
@@ -556,7 +556,6 @@ textarea.input { height: auto; padding: 10px 12px; resize: vertical; }
   .hero h1 { font-size: 40px; }
   .hero p { font-size: 15px; }
   .steps-card { grid-template-columns: 1fr; }
-  .steps-card .steps { display: none; }
   .hscroll { display: grid; grid-template-columns: repeat(4, 1fr); margin: 0; padding: 4px 0 0; overflow: visible; }
   .dest { width: auto; }
   .dest img { height: 128px; }
@@ -566,9 +565,7 @@ textarea.input { height: auto; padding: 10px 12px; resize: vertical; }
 
   .crew-head { padding: 18px 0 8px; }
   .crew-head h1 { font-size: 24px; }
-  .cols { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 16px; align-items: start; }
-  .cols > .card { margin-top: 12px; }
-  .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .plans { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
   .plans .plan { margin: 0; }
   .plan .cover { height: 150px; }
   .daytabs { margin: 12px 0 0; padding: 0 0 6px; }
@@ -583,6 +580,14 @@ textarea.input { height: auto; padding: 10px 12px; resize: vertical; }
   .shots { grid-template-columns: repeat(3, 1fr); }
   .kpis .kpi b { font-size: 28px; }
   .field > label { font-size: 15px; }
+}
+
+@media (min-width: 1024px) {
+  .top .steps { display: flex; margin-left: auto; width: min(560px, 52%); }
+  .steps-card .steps { display: none; }
+  .cols { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+  .cols > .card { margin-top: 12px; }
+  .plans { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (min-width: 1280px) {
